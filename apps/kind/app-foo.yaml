@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: foo
+  namespace: argo
+spec:
+  project: cluster-infra
+  destination:
+    name: in-cluster
+    namespace: foo
+  sources:
+    - repoURL: https://github.com/foobargem/argocd-example.git
+      targetRevision: dev
+      path: charts/foo
+      helm:
+        releaseName: foo
+        valueFiles:
+          - values.yaml
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
