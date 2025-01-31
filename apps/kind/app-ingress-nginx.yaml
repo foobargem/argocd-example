@@ -6,7 +6,7 @@ metadata:
 spec:
   project: cluster-infra
   destination:
-    name: kind
+    name: in-cluster
     namespace: ingress-nginx
   sources:
     - repoURL: https://kubernetes.github.io/ingress-nginx
