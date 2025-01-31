@@ -5,7 +5,10 @@ spec:
   project: cluster-infra
   destination:
     server: https://kubernetes.default.svc
-    namespace: foo
+    namespace: prod
   source:
     repoURL: https://github.com/foobargem/argocd-example.git
     targetRevision: dev-app
+    helm:
+      valueFiles:
+        - values-prod.yaml
