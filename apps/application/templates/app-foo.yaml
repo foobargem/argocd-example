@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: foo
+  name: {{ .Release.Name }}
   namespace: {{ .Values.metadata.namespace }}
 spec:
   project: {{ .Values.spec.project }}
@@ -13,7 +13,7 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     path: charts/foo
     helm:
-      releaseName: foo
+      releaseName: {{ .Release.Name }}
       valueFiles:
         - values.yaml
   syncPolicy:
