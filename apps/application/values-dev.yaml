@@ -1,0 +1,14 @@
+metadata:
+  namespace: argo
+
+spec:
+  project: cluster-infra
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  source:
+    repoURL: https://github.com/foobargem/argocd-example.git
+    targetRevision: dev-app
+    helm:
+      valueFiles:
+        - values-dev.yaml
